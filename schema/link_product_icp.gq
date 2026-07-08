@@ -1,0 +1,11 @@
+query link_product_icp(
+  $product: String,
+  $segment: String
+) {
+
+  insert HAS_ICP_SEGMENT {
+      from: "Stockly",
+      to: $segment
+  }
+
+}

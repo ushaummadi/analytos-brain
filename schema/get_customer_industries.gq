@@ -1,0 +1,12 @@
+query get_customer_industries(){
+
+    match{
+        $c:Customer
+        $c customer_industry $i
+    }
+
+    return{
+        $c.name as customer
+        $i.name as industry
+    }
+}

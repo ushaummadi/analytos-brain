@@ -1,0 +1,5 @@
+query add_customer($name: String) {
+    insert Customer {
+        name: $name
+    }
+}

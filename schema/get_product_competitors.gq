@@ -1,0 +1,13 @@
+query get_product_competitors() {
+
+  match {
+    $p: Product
+    $p has_competitor $c
+  }
+
+  return {
+    $p.name as product
+    $c.name as competitor
+  }
+
+}

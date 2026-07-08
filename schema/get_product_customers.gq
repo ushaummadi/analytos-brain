@@ -1,0 +1,11 @@
+query get_product_customers() {
+    match {
+        $p: Product
+        $p has_customer $c
+    }
+
+    return {
+        $p.name as product
+        $c.name as customer
+    }
+}

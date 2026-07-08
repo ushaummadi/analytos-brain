@@ -1,0 +1,12 @@
+query get_customer_use_cases(){
+
+    match{
+        $c:Customer
+        $c customer_use_case $u
+    }
+
+    return{
+        $c.name as customer
+        $u.name as use_case
+    }
+}

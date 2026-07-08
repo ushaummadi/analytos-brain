@@ -1,0 +1,12 @@
+query find_industry($name: String) {
+
+  match {
+    $i: Industry {
+      name: $name
+    }
+  }
+
+  return {
+    $i.name as name
+  }
+}

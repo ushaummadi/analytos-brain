@@ -1,0 +1,11 @@
+query find_competitor($name: String) {
+
+  match {
+    $c: Competitor { name: $name }
+  }
+
+  return {
+    $c.name
+  }
+
+}

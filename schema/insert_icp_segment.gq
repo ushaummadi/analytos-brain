@@ -1,0 +1,7 @@
+query add_icp_segment($name: String) {
+
+  insert ICPSegment {
+    name: $name
+  }
+
+}

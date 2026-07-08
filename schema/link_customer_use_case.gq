@@ -1,0 +1,10 @@
+query link_customer_use_case(
+  $customer: String,
+  $use_case: String
+) {
+
+  insert CUSTOMER_USE_CASE {
+    from: $customer,
+    to: $use_case
+  }
+}

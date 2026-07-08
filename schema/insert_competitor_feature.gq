@@ -1,0 +1,6 @@
+query add_competitor_feature($name: String) {
+
+  insert Feature {
+    name: $name
+  }
+}

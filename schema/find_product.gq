@@ -1,0 +1,9 @@
+query find_product($name: String) {
+  match {
+    $p: Product { name: $name }
+  }
+
+  return {
+    $p.name as name
+  }
+}

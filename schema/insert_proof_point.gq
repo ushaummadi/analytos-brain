@@ -1,0 +1,5 @@
+query add_proof_point($metric: String) {
+  insert ProofPoint {
+    metric: $metric
+  }
+}

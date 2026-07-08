@@ -1,0 +1,9 @@
+query link_product_customer(
+    $product: String,
+    $customer: String
+) {
+    insert HAS_CUSTOMER {
+        from: $product,
+        to: $customer
+    }
+}

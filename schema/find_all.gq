@@ -1,0 +1,9 @@
+query find_all() {
+  match {
+    $p: Product { name: "Stockly" }
+  }
+
+  return {
+    $p.name as name
+  }
+}

@@ -1,0 +1,9 @@
+query link_product_persona(
+  $product: String,
+  $persona: String
+) {
+  insert HAS_PERSONA {
+    from: "Stockly",
+    to: $persona
+  }
+}

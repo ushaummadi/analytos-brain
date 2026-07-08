@@ -1,0 +1,12 @@
+query get_customer_outcomes(){
+
+    match{
+        $c:Customer
+        $c customer_outcome $o
+    }
+
+    return{
+        $c.name as customer
+        $o.name as outcome
+    }
+}

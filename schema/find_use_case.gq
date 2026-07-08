@@ -1,0 +1,12 @@
+query find_use_case($name: String) {
+
+  match {
+    $u: UseCase {
+      name: $name
+    }
+  }
+
+  return {
+    $u.name as name
+  }
+}

@@ -1,0 +1,9 @@
+query link_product_feature(
+  $product: String,
+  $feature: String
+) {
+  insert HAS_FEATURE {
+    from: $product,
+    to: $feature
+  }
+}

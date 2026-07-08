@@ -1,0 +1,12 @@
+query find_feature($name: String) {
+
+  match {
+    $f: Feature {
+      name: $name
+    }
+  }
+
+  return {
+    $f.name
+  }
+}

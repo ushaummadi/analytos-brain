@@ -1,0 +1,6 @@
+query add_use_case($name:String){
+
+    insert UseCase{
+        name:$name
+    }
+}

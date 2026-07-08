@@ -1,0 +1,11 @@
+query get_product_proof_points() {
+  match {
+    $p: Product
+    $p has_proof_point $pp
+  }
+
+  return {
+    $p.name as product
+    $pp.metric as proof_point
+  }
+}

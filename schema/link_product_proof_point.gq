@@ -1,0 +1,9 @@
+query link_product_proof_point(
+  $product: String,
+  $metric: String
+) {
+  insert HAS_PROOF_POINT {
+    from: $product,
+    to: $metric
+  }
+}

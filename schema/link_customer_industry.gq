@@ -1,0 +1,10 @@
+query link_customer_industry(
+    $customer:String,
+    $industry:String
+){
+
+    insert CUSTOMER_INDUSTRY{
+        from:$customer,
+        to:$industry
+    }
+}

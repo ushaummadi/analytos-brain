@@ -1,0 +1,12 @@
+query find_outcome($name: String) {
+
+  match {
+    $o: Outcome {
+      name: $name
+    }
+  }
+
+  return {
+    $o.name as name
+  }
+}

@@ -1,0 +1,11 @@
+query get_product_features() {
+  match {
+    $p: Product
+    $p has_feature $f
+  }
+
+  return {
+    $p.name as product
+    $f.name as feature
+  }
+}

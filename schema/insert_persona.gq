@@ -1,0 +1,5 @@
+query add_persona($name: String) {
+  insert Persona {
+    name: $name
+  }
+}

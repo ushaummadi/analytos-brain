@@ -1,0 +1,10 @@
+query link_competitor_feature(
+  $competitor: String,
+  $feature: String
+) {
+
+  insert COMPETITOR_HAS_FEATURE {
+    from: $competitor,
+    to: $feature
+  }
+}

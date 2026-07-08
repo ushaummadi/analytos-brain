@@ -1,0 +1,11 @@
+query find_customer($name: String) {
+    match {
+        $c: Customer {
+            name: $name
+        }
+    }
+
+    return {
+        $c.name
+    }
+}

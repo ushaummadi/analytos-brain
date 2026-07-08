@@ -1,0 +1,11 @@
+query link_product_competitor(
+  $product: String,
+  $competitor: String
+) {
+
+  insert HAS_COMPETITOR {
+    from: $product,
+    to: $competitor
+  }
+
+}

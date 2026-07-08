@@ -1,0 +1,9 @@
+query get_inspectly() {
+  match {
+    $p: Product { name: "Inspectly" }
+  }
+
+  return {
+    $p.name as name
+  }
+}

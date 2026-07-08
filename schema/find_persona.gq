@@ -1,0 +1,11 @@
+query find_persona($name: String) {
+  match {
+    $p: Persona {
+      name: $name
+    }
+  }
+
+  return {
+    $p.name
+  }
+}

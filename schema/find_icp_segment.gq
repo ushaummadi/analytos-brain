@@ -1,0 +1,13 @@
+query find_icp_segment($name: String) {
+
+  match {
+    $i: ICPSegment {
+      name: $name
+    }
+  }
+
+  return {
+    $i.name
+  }
+
+}

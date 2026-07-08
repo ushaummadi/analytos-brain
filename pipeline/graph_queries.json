@@ -1,0 +1,9 @@
+{
+  "product features": "get_product_features",
+  "product personas": "get_product_personas",
+  "product icps": "get_product_icps",
+  "product competitors": "get_product_competitors",
+  "product customers": "get_product_customers",
+  "competitor features": "get_competitor_features",
+  "customer industries": "get_customer_industries"
+}

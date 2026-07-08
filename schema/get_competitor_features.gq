@@ -1,0 +1,11 @@
+query get_competitor_features() {
+    match {
+        $c: Competitor
+        $c competitorHasFeature $f
+    }
+
+    return {
+        $c.name as competitor
+        $f.name as feature
+    }
+}

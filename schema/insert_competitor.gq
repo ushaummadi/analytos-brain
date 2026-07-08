@@ -1,0 +1,7 @@
+query add_competitor($name: String) {
+
+  insert Competitor {
+    name: $name
+  }
+
+}

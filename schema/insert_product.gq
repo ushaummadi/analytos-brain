@@ -1,0 +1,5 @@
+query add_product($name: String) {
+  insert Product {
+    name: $name
+  }
+}

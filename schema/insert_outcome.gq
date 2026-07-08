@@ -1,0 +1,6 @@
+query add_outcome($name:String){
+
+    insert Outcome{
+        name:$name
+    }
+}

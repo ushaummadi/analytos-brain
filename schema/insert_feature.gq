@@ -1,0 +1,6 @@
+query add_feature($name: String) {
+
+  insert Feature {
+    name: $name
+  }
+}

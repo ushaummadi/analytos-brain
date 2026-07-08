@@ -1,0 +1,58 @@
+node Product {
+    name: String @key
+}
+
+node Feature {
+    name: String @key
+}
+
+node ProofPoint {
+    metric: String @key
+}
+
+node Persona {
+    name: String @key
+}
+
+node ICPSegment {
+    name: String @key
+}
+
+node Competitor {
+    name: String @key
+}
+node Customer {
+    name: String @key
+}
+
+
+node Industry {
+    name: String @key
+}
+
+node UseCase {
+    name: String @key
+}
+
+node Outcome {
+    name: String @key
+}
+
+edge HAS_FEATURE: Product -> Feature
+
+edge HAS_PROOF_POINT: Product -> ProofPoint
+
+edge HAS_PERSONA: Product -> Persona
+
+edge HAS_ICP_SEGMENT: Product -> ICPSegment
+
+edge HAS_COMPETITOR: Product -> Competitor
+
+edge COMPETITOR_HAS_FEATURE: Competitor -> Feature
+edge HAS_CUSTOMER: Product -> Customer
+
+edge CUSTOMER_INDUSTRY: Customer -> Industry
+
+edge CUSTOMER_USE_CASE: Customer -> UseCase
+
+edge CUSTOMER_OUTCOME: Customer -> Outcome

@@ -1,0 +1,12 @@
+query find_proofpoint($metric: String) {
+
+  match {
+    $p: ProofPoint {
+      metric: $metric
+    }
+  }
+
+  return {
+    $p.metric as metric
+  }
+}

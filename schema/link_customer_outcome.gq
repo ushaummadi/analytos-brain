@@ -1,0 +1,10 @@
+query link_customer_outcome(
+    $customer:String,
+    $outcome:String
+){
+
+    insert CUSTOMER_OUTCOME{
+        from:$customer,
+        to:$outcome
+    }
+}

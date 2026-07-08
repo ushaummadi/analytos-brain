@@ -1,0 +1,6 @@
+query add_industry($name:String){
+
+    insert Industry{
+        name:$name
+    }
+}

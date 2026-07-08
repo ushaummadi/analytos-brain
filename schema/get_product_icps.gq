@@ -1,0 +1,13 @@
+query get_product_icps() {
+
+  match {
+      $p: Product
+      $p has_icp_segment $i
+  }
+
+  return {
+      $p.name as product
+      $i.name as segment
+  }
+
+}

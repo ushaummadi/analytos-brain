@@ -1,0 +1,12 @@
+query get_product_personas() {
+
+  match {
+    $p: Product
+    $p has_persona $per
+  }
+
+  return {
+    $p.name as product
+    $per.name as persona
+  }
+}
