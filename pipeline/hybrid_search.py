@@ -31,28 +31,27 @@ def search_graph(question):
 
     query_name = select_query(question)
 
-    result = subprocess.run(
-        [
-            "omnigraph",
-            "query",
-            query_name,
-            "--query",
-            f"schema/{query_name}.gq",
-            "--branch",
-            "main",
-            "--store",
-            "graph.omni",
-        ],
-        capture_output=True,
-        text=True,
-    )
+    try:
+        result = subprocess.run(
+            [
+                "omnigraph",
+                "query",
+                query_name,
+                "--query",
+                f"schema/{query_name}.gq",
+                "--branch",
+                "main",
+                "--store",
+                "graph.omni",
+            ],
+            capture_output=True,
+            text=True,
+        )
 
-    return result.stdout
+        return result.stdout
 
     except Exception as e:
         return f"Graph error: {e}"
-
-
 # ----------------------------
 # Vector Search
 # ----------------------------
