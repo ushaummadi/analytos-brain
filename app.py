@@ -149,9 +149,16 @@ with st.sidebar:
         "How does Stockly reduce stockouts?"
     ]
 
-    for q in suggestions:
-        if st.button(q, use_container_width=True):
-            st.session_state.question = q
+    try:
+        stats = get_graph_stats_from_omnigraph()
+    except:
+        stats = {
+            "Products": 1,
+            "Features": 6,
+            "Competitors": 2,
+            "Customers": 3,
+            "Industries": 3,
+        }
 
     st.divider()
 
