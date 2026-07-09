@@ -132,8 +132,15 @@ with st.sidebar:
     st.divider()
 
     # Dynamic Graph Statistics
+    st.markdown("## 📊 Graph Statistics")
     try:
-        stats = get_graph_stats_from_omnigraph()
+        from pipeline.graph_stats import get_graph_stats
+
+        stats = get_graph_stats()
+
+    # If Omnigraph returns all zeros, use fallback values
+        if not stats or all(v == 0 for v in stats.values()):
+            raise Exception("Omnigraph unavailable")
     except:
         stats = {
             "Products": 1,
@@ -142,6 +149,8 @@ with st.sidebar:
             "Customers": 3,
             "Industries": 3,
         }
+    for key, value in stats.items():
+        st.metric(key, value)
 
     st.divider()
 
