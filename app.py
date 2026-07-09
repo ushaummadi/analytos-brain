@@ -7,6 +7,7 @@ from pipeline.hybrid_search import ask
 from pipeline.query_router import select_query
 from pipeline.graph_stats import get_graph_stats
 from pipeline.confidence import get_confidence
+import os
 # -------------------------------------------------
 # PAGE CONFIG
 # -------------------------------------------------
@@ -193,7 +194,9 @@ for msg in st.session_state.messages:
 # -------------------------------------------------
 # CHAT INPUT & EXECUTION
 # -------------------------------------------------
-
+if not os.path.exists("vector_db"):
+    from pipeline.extract import ingest_documents
+    ingest_documents()
 question = st.chat_input("Ask about Stockly...")
 
 if question is None and st.session_state.question:
