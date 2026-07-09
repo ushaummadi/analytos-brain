@@ -728,21 +728,22 @@ How does Stockly reduce stockouts?
 ---
 
 # 🌐 Deployment
+## Dashboard
 
+https://analytos-brain.streamlit.app/
 
-Dashboard:
+### Deployment Note
 
-```
-(Add Streamlit URL)
-```
+The Streamlit deployment demonstrates:
 
+- Dashboard
+- Hybrid Search
+- Authentication
+- Chat History
+- Content Agent
+- GTM Agent
 
-MCP Endpoint:
-
-```
-(Add MCP URL)
-```
-
+Omnigraph CLI operations (Branch Diff, Merge, Review) are demonstrated locally because Streamlit Community Cloud does not support installing the Omnigraph CLI binary.
 
 ---
 
