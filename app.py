@@ -10,7 +10,7 @@ from pipeline.confidence import get_confidence
 # -------------------------------------------------
 # PAGE CONFIG
 # -------------------------------------------------
-
+database.init_db()
 st.set_page_config(
     page_title="Analytos Brain",
     page_icon="🧠",
