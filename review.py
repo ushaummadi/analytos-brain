@@ -1,7 +1,21 @@
+import shutil
 import subprocess
-
-
 def get_branch_diff(branch):
+
+    if shutil.which("omnigraph") is None:
+        return """
+Omnigraph is unavailable on Streamlit Cloud.
+
+Demo Branch:
+---------------------
+
++ Product: Stockly
++ Feature: Demand Forecasting
++ Feature: Inventory Planning
++ Customer: Walmart
++ Customer: Target
++ Proof Point: Reduced stockouts by 35%
+"""
 
     result = subprocess.run(
         [
@@ -12,14 +26,17 @@ def get_branch_diff(branch):
             "--from",
             "main",
             "--to",
-            branch
+            branch,
         ],
         capture_output=True,
-        text=True
+        text=True,
     )
 
     return result.stdout
 def merge_branch(branch):
+
+    if shutil.which("omnigraph") is None:
+        return "Branch merged successfully (Demo Mode)."
 
     result = subprocess.run(
         [
@@ -28,14 +45,17 @@ def merge_branch(branch):
             "merge",
             branch,
             "--store",
-            "graph.omni"
+            "graph.omni",
         ],
         capture_output=True,
-        text=True
+        text=True,
     )
 
     return result.stdout
 def delete_branch(branch):
+
+    if shutil.which("omnigraph") is None:
+        return "Branch rejected (Demo Mode)."
 
     result = subprocess.run(
         [
@@ -44,10 +64,10 @@ def delete_branch(branch):
             "delete",
             branch,
             "--store",
-            "graph.omni"
+            "graph.omni",
         ],
         capture_output=True,
-        text=True
+        text=True,
     )
 
     return result.stdout
