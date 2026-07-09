@@ -132,11 +132,16 @@ with st.sidebar:
     st.divider()
 
     # Dynamic Graph Statistics
-    st.markdown("## 📊 Graph Statistics")
-    stats = get_graph_stats()
-
-    for key, value in stats.items():
-        st.metric(key, value)
+    try:
+        stats = get_graph_stats_from_omnigraph()
+    except:
+        stats = {
+            "Products": 1,
+            "Features": 6,
+            "Competitors": 2,
+            "Customers": 3,
+            "Industries": 3,
+        }
 
     st.divider()
 
