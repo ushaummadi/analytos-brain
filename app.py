@@ -9,20 +9,6 @@ from pipeline.graph_stats import get_graph_stats
 from pipeline.confidence import get_confidence
 import os
 import os
-from pipeline.extract import ingest_documents
-
-database.init_db()
-
-# Create vector DB automatically if missing
-if not os.path.exists("vector_db/chroma.sqlite3"):
-    try:
-        ingest_documents()
-    except Exception as e:
-        print(f"Vector DB creation failed: {e}")
-# -------------------------------------------------
-# PAGE CONFIG
-# -------------------------------------------------
-
 st.set_page_config(
     page_title="Analytos Brain",
     page_icon="🧠",
