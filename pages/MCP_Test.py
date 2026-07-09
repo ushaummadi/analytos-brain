@@ -1,30 +1,45 @@
 import streamlit as st
-
 from pipeline.hybrid_search import ask
-from policy import check_access
 
 st.title("🧪 MCP Tester")
 
 role = st.selectbox(
     "Agent",
-    [
-        "content-agent",
-        "gtm-agent"
-    ]
+    ["content-agent", "gtm-agent"]
 )
 
 question = st.text_input("Question")
 
-if st.button("Ask"):
+if st.button("Run"):
 
-    # Block EmailThread access
-    if "email" in question.lower():
+    # Restricted keywords
+    restricted = [
+        "email",
+        "gmail",
+        "internal",
+        "thread",
+        "conversation"
+    ]
 
-        if not check_access(role, "EmailThread"):
+    # Content Agent restriction
+    if role == "content-agent" and any(
+        word in question.lower() for word in restricted
+    ):
+        st.error("""
+❌ Access Denied
 
-            st.error("❌ Access Denied")
-            st.stop()
+The **content-agent** role is not authorized to access:
 
+• Internal Emails
+• Email Threads
+• Gmail Content
+• Internal Communications
+
+This request is blocked by the simulated Cedar access policy.
+""")
+        st.stop()
+
+    # Otherwise execute normally
     answer, context = ask(question)
 
     st.success(answer)
