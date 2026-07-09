@@ -8,7 +8,7 @@ from pipeline.query_router import select_query
 from pipeline.graph_stats import get_graph_stats
 from pipeline.confidence import get_confidence
 import os
-import os
+database.init_db()
 st.set_page_config(
     page_title="Analytos Brain",
     page_icon="🧠",
