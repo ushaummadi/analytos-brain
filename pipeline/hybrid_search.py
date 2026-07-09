@@ -2,6 +2,7 @@ from langchain_chroma import Chroma
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from pipeline.answer_generator import generate_answer
 from pipeline.query_router import select_query
+import shutil
 import subprocess
 
 # ----------------------------
