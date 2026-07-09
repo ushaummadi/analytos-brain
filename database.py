@@ -1,70 +1,39 @@
 import sqlite3
 
-# -----------------------------------------
-# Database Connection
-# -----------------------------------------
-
-conn = sqlite3.connect(
-    "users.db",
-    check_same_thread=False
-)
-
+conn = sqlite3.connect("users.db", check_same_thread=False)
 cursor = conn.cursor()
 
-# -----------------------------------------
-# Users Table
-# -----------------------------------------
+def init_db():
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS users(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE,
+        password TEXT
+    )
+    """)
 
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS users(
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS chats(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT,
+        role TEXT,
+        message TEXT
+    )
+    """)
 
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS approvals(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        branch TEXT,
+        approved_by TEXT,
+        approved_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+    """)
 
-    username TEXT UNIQUE,
+    conn.commit()
 
-    password TEXT
-
-)
-""")
-
-# -----------------------------------------
-# Chat History Table
-# -----------------------------------------
-
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS chats(
-
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-
-    username TEXT,
-
-    role TEXT,
-
-    message TEXT
-
-)
-""")
-
-# -----------------------------------------
-# Approval History Table
-# -----------------------------------------
-
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS approvals(
-
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-
-    branch TEXT,
-
-    approved_by TEXT,
-
-    approved_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-
-)
-""")
-
-conn.commit()
-
+# Create tables automatically
+init_db()
 # -----------------------------------------
 # Approval Functions
 # -----------------------------------------
